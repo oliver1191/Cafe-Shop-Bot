@@ -1,0 +1,29 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtB3AwMUeNoq4gUBGe6Ocj8kyh3bXa9ZbV7u1fVKQoyKFHdkqU",
+      "size": "stretch"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "medium",
+      "size": "default",
+      "weight": "bolder",
+      "text": "Please choose the size of your drink!",
+      "wrap": true,
+      "maxLines": 0
+    }
+    //{
+    //  "type": "TextBlock",
+    //  "size": "default",
+    //  "isSubtle": "yes",
+    //  "text": "Please choose the type of coffer you want to buy.",
+    //  "wrap": true,
+    //  "maxLines": 0
+    //}
+  ]
+}
