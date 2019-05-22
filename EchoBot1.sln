@@ -5,17 +5,11 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoBot1", "EchoBot1\EchoBot1.csproj", "{91F03A29-3D71-4A1D-B5F1-2F63B9483250}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Builder", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Builder\Microsoft.Bot.Builder.csproj", "{F6674984-F139-4575-B2C6-8122F7262FDD}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Builder.Integration.AspNet.Core", "..\botbuilder-dotnet-master\libraries\integration\Microsoft.Bot.Builder.Integration.AspNet.Core\Microsoft.Bot.Builder.Integration.AspNet.Core.csproj", "{7080584B-0DA1-41AF-99B0-FAC187E01E4A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Builder.Dialogs", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Builder.Dialogs\Microsoft.Bot.Builder.Dialogs.csproj", "{84084555-5003-4F06-B191-5497127D5370}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Configuration", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Configuration\Microsoft.Bot.Configuration.csproj", "{B72BBCD3-42CB-4D73-97A5-E64298A07768}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Connector", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Connector\Microsoft.Bot.Connector.csproj", "{2123EF10-0253-4C7D-B974-F2E940D022F3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Schema", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Schema\Microsoft.Bot.Schema.csproj", "{D447C019-5A53-4D36-A5B9-DB2D164372CA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Bot.Builder", "..\botbuilder-dotnet-master\libraries\Microsoft.Bot.Builder\Microsoft.Bot.Builder.csproj", "{09BD034A-6DCC-44C9-B2D3-CE52056F354F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +27,14 @@ Global
 		{91F03A29-3D71-4A1D-B5F1-2F63B9483250}.Documentation|Any CPU.Build.0 = Debug|Any CPU
 		{91F03A29-3D71-4A1D-B5F1-2F63B9483250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F03A29-3D71-4A1D-B5F1-2F63B9483250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6674984-F139-4575-B2C6-8122F7262FDD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7080584B-0DA1-41AF-99B0-FAC187E01E4A}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
 		{7080584B-0DA1-41AF-99B0-FAC187E01E4A}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
 		{7080584B-0DA1-41AF-99B0-FAC187E01E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,38 +51,6 @@ Global
 		{84084555-5003-4F06-B191-5497127D5370}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
 		{84084555-5003-4F06-B191-5497127D5370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84084555-5003-4F06-B191-5497127D5370}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B72BBCD3-42CB-4D73-97A5-E64298A07768}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2123EF10-0253-4C7D-B974-F2E940D022F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D447C019-5A53-4D36-A5B9-DB2D164372CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Debug - NuGet Packages|Any CPU.ActiveCfg = Debug - NuGet Packages|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Debug - NuGet Packages|Any CPU.Build.0 = Debug - NuGet Packages|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Documentation|Any CPU.ActiveCfg = Documentation|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Documentation|Any CPU.Build.0 = Documentation|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09BD034A-6DCC-44C9-B2D3-CE52056F354F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

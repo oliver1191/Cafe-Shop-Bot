@@ -66,63 +66,16 @@ namespace EchoBot1
         /// <seealso cref="ConversationState"/>
         /// <seealso cref="IMiddleware"/>
         public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // Handle Message activity type, which is the main activity type for shown within a conversational interface
-            // Message activities may contain text, speech, interactive cards, and binary or unknown attachments.
-            // see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
-            //if (turnContext.Activity.Type == ActivityTypes.Message)
-            //{
-            //    // Get the conversation state from the turn context.
-            //    var state = await _accessors.CounterState.GetAsync(turnContext, () => new CounterState());
-
-            //    // Bump the turn count for this conversation.
-            //    state.TurnCount++;
-
-            //    // Set the property using the accessor.
-            //    await _accessors.CounterState.SetAsync(turnContext, state);
-
-            //    // Save the new turn count into the conversation state.
-            //    await _accessors.ConversationState.SaveChangesAsync(turnContext);
-
-            //    // Echo back to the user whatever they typed.
-            //    var responseMessage = $"Turn {state.TurnCount}: You sent '{turnContext.Activity.Text}'\n";
-            //    await turnContext.SendActivityAsync(responseMessage);
-            //}
-            //else
-            //{
-            //    await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
-            //}
+        {            
             switch (turnContext.Activity.Type)
             {
                 case ActivityTypes.Message:
-                    //var dc = await dialogs.CreateContextAsync(turnContext);
-                    //var turnResult = await dc.ContinueDialogAsync();
-                    //if (turnResult.Status == DialogTurnStatus.Empty && !dc.Context.Responded)
-                    //{
-                    //    await dc.BeginDialogAsync(nameof(MainDispatcherDialog));
-                    //}
-                    if (turnContext.Activity.Text == "Order")
+                    var dc = await dialogs.CreateContextAsync(turnContext);
+                    var turnResult = await dc.ContinueDialogAsync();
+                    if (turnResult.Status == DialogTurnStatus.Empty && !dc.Context.Responded)
                     {
-                        await CreateDrinkTypeCardMessageAsync(turnContext);
-                    }
-                    //var state = await _accessors.CounterState.GetAsync(turnContext, () => new CounterState());
-                    //if (!string.IsNullOrEmpty(state.LastTurnMessage) && !string.IsNullOrEmpty(turnContext.Activity.Text) && state.OrderStatus == 1)
-                    //{
-                    //    await turnContext.SendActivityAsync($"Thanks,get your order:{turnContext.Activity.Text} {state.LastTurnMessage}.");
-                    //    state.LastTurnMessage = "";
-                    //    state.OrderStatus = 0;
-                    //    await _accessors.CounterState.SetAsync(turnContext, state);
-                    //    await _accessors.ConversationState.SaveChangesAsync(turnContext);
-                    //}
-                    //else if (string.IsNullOrEmpty(state.LastTurnMessage) && turnContext.Activity.Text != "order" && state.OrderStatus == 0)
-                    //{
-                    //    state.LastTurnMessage = turnContext.Activity.Text;
-                    //    state.OrderStatus = 1;
-                    //    await _accessors.CounterState.SetAsync(turnContext, state);
-                    //    await _accessors.ConversationState.SaveChangesAsync(turnContext);
-                    //    await CreateSizeCardMessageAsync(turnContext);
-                    //}                                                      
-                    //something to do                                         
+                        await dc.BeginDialogAsync(nameof(MainDispatcherDialog));
+                    }                                                      
                     break;
                 case ActivityTypes.ConversationUpdate:
                     if (turnContext.Activity.MembersAdded != null&& turnContext.Activity.Recipient.Id== turnContext.Activity.MembersAdded[0].Id)
@@ -141,8 +94,8 @@ namespace EchoBot1
         private async Task SendWelcomeMessageAsync(ITurnContext turnContext)
         {            
             var activity = turnContext.Activity.CreateReply();
-            activity.Attachments = new List<Attachment> { AdaptiveCardFactory.CreateWelcomeCard()}; 
-            //activity.Attachments = new List<Attachment> { AdaptiveCardFactory.CreateDrinkTypeCard() };
+            //activity.Attachments = new List<Attachment> { AdaptiveCardFactory.CreateWelcomeCard()}; 
+            activity.Attachments = new List<Attachment> { AdaptiveCardFactory.CreateDrinkTypeCard() };
             await turnContext.SendActivityAsync(activity);
         }
 
@@ -159,78 +112,6 @@ namespace EchoBot1
             var activity = turnContext.Activity.CreateReply();            
             activity.Attachments = new List<Attachment> { Helper.CreateAdaptiveCardAttachment(new[] { ".", "Dialogs", "Welcome", "Resources", "chooseSizeCard.json" }), ChooseSizeCard(), };
             await turnContext.SendActivityAsync(activity);
-        }
-        public static Attachment CreateWhatCanYouDoCard()
-        {
-            HeroCard whatCanYouDoCard = new HeroCard();
-            whatCanYouDoCard.Title = "Welcome to Oliver Cafe Shop!";
-            whatCanYouDoCard.Subtitle = "Please Choose the type of drink you want.";
-            //StringBuilder body = new StringBuilder();
-            //body.AppendFormat("<b>{0}</b><br />{1}<br />", "1", "2");
-            //body.Append("<ul>");
-            //body.AppendFormat("<li>{0}</li>", "3");
-            //body.AppendFormat("<li>{0}</li>", "4");
-            //body.Append("</ul>");
-            //body.AppendFormat("{0}<br />", "5");
-            //body.Append("<ul>");
-            //body.AppendFormat("<li>{0}</li>", "Tea");
-            //body.AppendFormat("<li>{0}</li>", "Coffer");
-            //body.AppendFormat("<li>{0}</li>", "Milk");
-            //body.Append("</ul>");            
-            //whatCanYouDoCard.Text = body.ToString();
-            whatCanYouDoCard.Buttons = new List<CardAction>()
-            {
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Tea",
-                    Title = "Tea"
-                },
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Coffer",
-                    Title = "Coffer"
-                },
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Milk",
-                    Title = "Mill"
-                }
-            };
-
-            return whatCanYouDoCard.ToAttachment();
-        }
-
-        public static Attachment ChooseSizeCard()
-        {
-            HeroCard whatCanYouDoCard = new HeroCard();
-            whatCanYouDoCard.Title = "Please choose the size of drink you want.";
-            whatCanYouDoCard.Buttons = new List<CardAction>()
-            {
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Large",
-                    Title = "Large"
-                },
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Middle",
-                    Title = "Middle"
-                },
-                new CardAction
-                {
-                    Type = ActionTypes.ImBack,
-                    Value = "Small",
-                    Title = "Small"
-                }
-            };
-
-            return whatCanYouDoCard.ToAttachment();
-        }
-        
+        }                       
     }
 }
