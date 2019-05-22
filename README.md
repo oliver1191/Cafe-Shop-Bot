@@ -1,5 +1,3 @@
-# Cafe-Shop-Bot.
+# Cafe-Shop-Bot 1.0.
 You can order cafe by this bot.
-It contains "Tea","Coffer","Milk" main type of drink,and sub type.
-You can also the size of drink.
-This bot project use herocard and adaptivecard
+![image](https://github.com/oliver1191/Cafe-Shop-Bot/blob/master/Images/Cafe%20Shop%20Bot%201.0.png)
